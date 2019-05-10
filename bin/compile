@@ -325,6 +325,12 @@ sub_env "$BIN_DIR/steps/collectstatic"
 mtime "collectstatic.time" "${start}"
 
 
+# Django migrate support.
+(( start=$(nowms) ))
+sub_env "$BIN_DIR/steps/migrate"
+mtime "migrate.time" "${start}"
+
+
 # Progamatically create .profile.d script for application runtime environment variables.
 
 # Set the PATH to include Python / pip / pipenv / etc.
